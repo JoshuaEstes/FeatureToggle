@@ -32,7 +32,7 @@ other way to enable a feature is like so:
 
 Various toggles can be created to allow enable or disable based on various
 other conditions such as IP address, username, or anything else that you want
-to make. It must implement `JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggleGeneric`.
+to make. It must implement `JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggleInterface`.
 
 # Feature Bag
 

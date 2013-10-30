@@ -15,6 +15,7 @@ class FeatureBagTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertSame($feature, $bag->getFeature('test_key'));
+        $this->assertNull($bag->getFeature('no_feature_here'));
     }
 
     public function testHasFeature()

@@ -1,0 +1,4 @@
+/build/coverage/
+/build/logs/
+/vendor/
+composer.lock

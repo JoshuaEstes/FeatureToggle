@@ -1,0 +1,14 @@
+{
+    "name": "joshuaestes/feature-toggle",
+    "description": "Provides feature toggle functionality",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": { "": "src/"  }
+    },
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "phing/phing": "*"
+    }
+}

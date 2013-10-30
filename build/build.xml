@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="feature toggle" default="phpunit" basedir=".">
+    <target name="phpunit">
+        <exec executable="${project.basedir}/vendor/bin/phpunit" passthru="true">
+            <arg value="-c" />
+            <arg value="${project.basedir}/build/" />
+        </exec>
+    </target>
+
+    <target name="lint">
+        <phplint>
+            <fileset dir="${project.basedir}/src">
+                <include name="**/*.php" />
+            </fileset>
+        </phplint>
+    </target>
+</project>

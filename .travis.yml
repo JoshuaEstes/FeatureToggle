@@ -8,7 +8,7 @@ branches:
 before_install:
     - curl -sS https://getcomposer.org/installer | php
 install:
-    - composer.phar update
+    - php composer.phar update
 script:
     - php vendor/bin/phing -f build/build.xml
 cache:

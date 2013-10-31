@@ -1,6 +1,8 @@
 joshuaestes/feature-toggle
 ==========================
 
+[![Build Status](https://travis-ci.org/JoshuaEstes/FeatureToggle.png?branch=master)](https://travis-ci.org/JoshuaEstes/FeatureToggle)
+
 This is just a small proof of concept that can be used
 to create feature toggles.
 

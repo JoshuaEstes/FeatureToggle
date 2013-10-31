@@ -6,6 +6,8 @@ use JoshuaEstes\Component\FeatureToggle\FeatureInterface;
 
 /**
  * Now you too can have a bag full of features!
+ * 
+ * @author Joshua Estes <Joshua@Estes.in>
  */
 class FeatureBag implements \IteratorAggregate
 {

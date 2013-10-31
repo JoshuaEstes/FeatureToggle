@@ -6,6 +6,9 @@ use JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggleInterface;
 use JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggleGeneric;
 
 /**
+ * Object that represents a feature in the system.
+ *
+ * @author Joshua Estes <Joshua@Estes.in>
  */
 class Feature implements FeatureInterface
 {
@@ -33,7 +36,7 @@ class Feature implements FeatureInterface
      */
     public function __construct($key, FeatureToggleInterface $toggle = null)
     {
-        $this->key   = $key;
+        $this->key    = $key;
         $this->toggle = $toggle ? $toggle : new FeatureToggleGeneric(false);
     }
 

@@ -4,6 +4,8 @@ namespace JoshuaEstes\Component\FeatureToggle\Toggle;
 
 /**
  * Used to easly add a feature that can be enabled or disabled
+ * 
+ * @author Joshua Estes <Joshua@Estes.in>
  */
 class FeatureToggleGeneric implements FeatureToggleInterface
 {
@@ -29,4 +31,3 @@ class FeatureToggleGeneric implements FeatureToggleInterface
         return $this->enabled;
     }
 }
-

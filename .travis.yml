@@ -1,0 +1,16 @@
+language: php
+php:
+    - 5.5
+    - 5.4
+branches:
+    only:
+        - master
+before_install:
+    - curl -sS https://getcomposer.org/installer | php
+install:
+    - composer.phar update
+script:
+    - php vendor/bin/phing -f build/build.xml
+cache:
+    directories:
+        - vendor/

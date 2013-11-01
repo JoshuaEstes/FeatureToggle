@@ -31,6 +31,8 @@ class FeatureContainer implements \IteratorAggregate, \Countable
     }
 
     /**
+     * Add a feature to the container
+     * 
      * @param FeatureInterface
      *
      * @return FeatureBag
@@ -43,6 +45,9 @@ class FeatureContainer implements \IteratorAggregate, \Countable
     }
 
     /**
+     * Get a feature from the container. If no feature is present,
+     * this will return null.
+     *
      * @param string $key
      *
      * @return FeatureInterface|null
@@ -57,6 +62,8 @@ class FeatureContainer implements \IteratorAggregate, \Countable
     }
 
     /**
+     * Checks to see if the feature is in the container.
+     *
      * @param string $key
      *
      * @return FeatureInterface
@@ -67,6 +74,8 @@ class FeatureContainer implements \IteratorAggregate, \Countable
     }
 
     /**
+     * Remove a feature from the container
+     *
      * @param string $key
      *
      * @return FeatureInterface
@@ -79,6 +88,8 @@ class FeatureContainer implements \IteratorAggregate, \Countable
     }
 
     /**
+     * Removes all features from the container.
+     *
      * @return FeatureInterface
      */
     public function clearFeatures()

@@ -13,4 +13,35 @@ use JoshuaEstes\Component\FeatureToggle\FeatureInterface;
  */
 interface RepositoryInterface
 {
+
+    /**
+     * @param string $key
+     *
+     * @return FeatureInterface
+     */
+    public function get($key);
+
+    /**
+     * @param FeatureInterface $feature
+     *
+     * @return FeatureInterface
+     */
+    public function add(FeatureInterface $feature);
+
+    /**
+     * @param FeatureInterface $feature
+     *
+     * @return FeatureInterface
+     */
+    public function update(FeatureInterface $feature);
+
+    /**
+     * @param string $key
+     */
+    public function delete($key);
+
+    /**
+     * @return FeatureContainer
+     */
+    public function all();
 }

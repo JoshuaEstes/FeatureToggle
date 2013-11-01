@@ -10,5 +10,10 @@
     "require-dev": {
         "phpunit/phpunit": "*",
         "phing/phing": "*"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
     }
 }

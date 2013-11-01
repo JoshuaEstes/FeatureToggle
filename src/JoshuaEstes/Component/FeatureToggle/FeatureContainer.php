@@ -5,6 +5,8 @@ namespace JoshuaEstes\Component\FeatureToggle;
 use JoshuaEstes\Component\FeatureToggle\FeatureInterface;
 
 /**
+ * This container contains all the features that you have.
+ * 
  * @author Joshua Estes <Joshua@Estes.in>
  */
 class FeatureContainer implements \IteratorAggregate, \Countable
@@ -64,6 +66,11 @@ class FeatureContainer implements \IteratorAggregate, \Countable
         return isset($this->features[$key]);
     }
 
+    /**
+     * @param string $key
+     *
+     * @return FeatureInterface
+     */
     public function removeFeature($key)
     {
         unset($this->features[$key]);
@@ -71,6 +78,9 @@ class FeatureContainer implements \IteratorAggregate, \Countable
         return $this;
     }
 
+    /**
+     * @return FeatureInterface
+     */
     public function clearFeatures()
     {
         $this->features = array();

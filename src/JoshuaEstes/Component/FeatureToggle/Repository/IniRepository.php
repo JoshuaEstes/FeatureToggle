@@ -3,10 +3,10 @@
 namespace JoshuaEstes\Component\FeatureToggle\Repository;
 
 use JoshuaEstes\Component\FeatureToggle\FeatureContainer;
+use JoshuaEstes\Component\FeatureToggle\Feature;
 use JoshuaEstes\Component\FeatureToggle\FeatureInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\OptionsResolver\Options;
 
 /**
  * Persists the features in an ini file
@@ -60,7 +60,7 @@ class IniRepository implements RepositoryInterface
         foreach ($this->iniFile as $section => $val) {
             $contents[] = sprintf("[%s]", $section);
             foreach ($val as $k => $v) {
-                $contents[] = sprintf("%s=\"%s\"", $k, $v);
+                $contents[] = sprintf("%s='%s'", $k, $v);
             }
         }
 
@@ -80,6 +80,13 @@ class IniRepository implements RepositoryInterface
      */
     public function get($key)
     {
+        $this->parseIniFile();
+
+        if (isset($this->iniFile[$key])) {
+            return new Feature($key, unserialize($this->iniFile[$key]['toggle']));
+        }
+
+        return null;
     }
 
     /**
@@ -89,7 +96,7 @@ class IniRepository implements RepositoryInterface
     {
         $this->iniFile[$feature->getKey()] = array(
             'description' => $feature->getDescription(),
-            'toggle'      => get_class($feature->getToggle()),
+            'toggle'      => serialize($feature->getToggle()),
         );
 
         $this->writeIniFile();
@@ -120,5 +127,6 @@ class IniRepository implements RepositoryInterface
      */
     public function all()
     {
+        $this->parseIniFile();
     }
 }

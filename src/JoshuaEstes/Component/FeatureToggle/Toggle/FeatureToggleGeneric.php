@@ -2,25 +2,33 @@
 
 namespace JoshuaEstes\Component\FeatureToggle\Toggle;
 
+use JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggle;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+
 /**
  * Used to easly add a feature that can be enabled or disabled
  * 
  * @author Joshua Estes <Joshua@Estes.in>
  */
-class FeatureToggleGeneric implements FeatureToggleInterface
+class FeatureToggleGeneric extends FeatureToggle
 {
 
     /**
-     * @var boolean
+     * {@inheritDoc}
      */
-    protected $enabled;
-
-    /**
-     * @param boolean $enabled
-     */
-    public function __construct($enabled)
+    protected function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $this->enabled = $enabled;
+        $resolver->setDefaults(
+            array(
+                'enabled' => false,
+            )
+        );
+
+        $resolver->setAllowedTypes(
+            array(
+                'enabled' => 'bool',
+            )
+        );
     }
 
     /**
@@ -28,6 +36,6 @@ class FeatureToggleGeneric implements FeatureToggleInterface
      */
     public function isEnabled()
     {
-        return $this->enabled;
+        return $this->options['enabled'];
     }
 }

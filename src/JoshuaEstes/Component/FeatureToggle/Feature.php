@@ -37,7 +37,7 @@ class Feature implements FeatureInterface
     public function __construct($key, FeatureToggleInterface $toggle = null)
     {
         $this->key    = $key;
-        $this->toggle = $toggle ? $toggle : new FeatureToggleGeneric(false);
+        $this->toggle = $toggle ? $toggle : new FeatureToggleGeneric(array('enabled'=>false));
     }
 
     /**

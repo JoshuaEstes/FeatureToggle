@@ -12,6 +12,12 @@ $repo = new IniRepository(
     )
 );
 
-$feature = new Feature('enable_test_feature');
+$f = $repo->get('enable_test_feature');
+if (null !== $f) {
+    var_dump($f->isEnabled());
+}
 
-$repo->add($feature);
+$feature = new Feature('enable_test_feature');
+$feature = $repo->add($feature);
+$feature->getToggle()->setOption('enabled', true);
+$repo->update($feature);

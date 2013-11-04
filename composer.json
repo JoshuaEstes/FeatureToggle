@@ -1,8 +1,19 @@
 {
     "name": "joshuaestes/feature-toggle",
+    "homepage": "https://github.com/JoshuaEstes/FeatureToggle",
     "description": "Provides feature toggle functionality",
     "license": "MIT",
     "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Contributors",
+            "homepage": "https://github.com/JoshuaEstes/FeatureToggle/graphs/contributors"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/JoshuaEstes/FeatureToggle/issues",
+        "wiki": "https://github.com/JoshuaEstes/FeatureToggle/wiki"
+    },
     "autoload": {
         "psr-0": { "": "src/"  }
     },

@@ -3,6 +3,24 @@ joshuaestes/feature-toggle
 
 [![Build Status](https://travis-ci.org/JoshuaEstes/FeatureToggle.png?branch=master)](https://travis-ci.org/JoshuaEstes/FeatureToggle)
 
+This library allows you to easily add and modify various features to your code
+while in development. Please read the information below on instructions on how
+to use this library as well as how to customize and add to it for your own needs.
+
+# Concepts
+
+* **Features** are all unique and allows you to enable or disable each feature.
+* **Toggles** are the logic behind whether a feature is enabled or not.
+* **Repositories** allow you to persist features.
+
+# Installation
+
+To install, just add to your `composer.json` file.
+
+    "require": {
+        "joshuaestes/feature-toggle": "~0.1"
+    },
+
 # Usage
 
     use JoshuaEstes\Component\FeatureToggle\Feature;
@@ -64,8 +82,34 @@ You can read the source code for more methods that you can call, such as
 `removeFeature` and `clearFeatures`.
 
 # Creating Custom Features
+
+All features must implement the `[FeatureInterface](https://github.com/JoshuaEstes/FeatureToggle/blob/master/src/JoshuaEstes/Component/FeatureToggle/FeatureInterface.php)`.
+
+In most situations you will only need to use the default `Feature`, however in
+some situations you might want to create your own.
+
 # Creating Custom Toggles
+
+All toggles must implement the `[FeatureToggleInterface](https://github.com/JoshuaEstes/FeatureToggle/blob/master/src/JoshuaEstes/Component/FeatureToggle/Toggle/FeatureToggleInterface.php)`.
+
+By creating a custom toggle, you can change the logic for figuring out if a
+feature is enable or not. Some ideas for custom toggles include:
+
+* IP Based, can enable a feature if the user is on an internal network.
+* Username, or something similar.
+* Collection, a collection of toggles where it checks for any or all to be enable.
+* Gradual, where you can release a feature to x% of a user base.
+
 # Creating Custom Repository
+
+All toggles must implement the `[RepositoryInterface](https://github.com/JoshuaEstes/FeatureToggle/blob/master/src/JoshuaEstes/Component/FeatureToggle/Repository/RepositoryInterface.php)`.
+
+Creating custom repositories allow you to store the states of the features
+in anything from a database to a flat file store. Some ideas are:
+
+* MySQL
+* MongoDB
+* SQLite
 
 # Testing
 

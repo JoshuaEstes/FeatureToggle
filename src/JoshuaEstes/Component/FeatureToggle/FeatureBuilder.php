@@ -44,8 +44,7 @@ class FeatureBuilder
             throw new \Exception('Must set the feature toggle.');
         }
 
-        $feature = new Feature();
-        $feature->setKey($this->key);
+        $feature = new Feature($this->key);
         $feature->setToggle($this->toggle);
         $feature->setDescription($this->description);
 

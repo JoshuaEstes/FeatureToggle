@@ -20,12 +20,12 @@ feature. You are able to do this two different ways.
 
     use JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggleGeneric;
 
-    $feature = new Feature('enable_a_cool_new_feature', new FeatureToggleGeneric(true));
+    $feature = new Feature('enable_a_cool_new_feature', new FeatureToggleGeneric(array('enabled'=>true)));
 
 This will now enabled the feature, when you call `isEnabled()` it will return `true`. The
 other way to enable a feature is like so:
 
-    $feature->setToggle(new FeatureToggleGeneric(true));
+    $feature->setToggle(new FeatureToggleGeneric(array('enabled'=>true)));
 
 # Toggles
 
@@ -62,6 +62,10 @@ can easily loop through them.
 
 You can read the source code for more methods that you can call, such as
 `removeFeature` and `clearFeatures`.
+
+# Creating Custom Features
+# Creating Custom Toggles
+# Creating Custom Repository
 
 # Testing
 

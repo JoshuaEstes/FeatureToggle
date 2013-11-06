@@ -20,4 +20,20 @@ class FeatureBuilderTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($feature->getDescription(), 'This is a test feature');
         $this->assertSame($feature->getToggle(), $toggle);
     }
+
+    public function testWithoutKey()
+    {
+        $this->setExpectedException('Exception');
+
+        $feature = FeatureBuilder::create()
+            ->getFeature();
+    }
+
+    public function testWithoutToggle()
+    {
+        $feature = FeatureBuilder::create()
+            ->setKey('test_feature')
+            ->getFeature();
+        $this->assertFalse($feature->isEnabled());
+    }
 }

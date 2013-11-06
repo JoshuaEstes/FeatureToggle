@@ -20,4 +20,19 @@ class FeatureToggleGenericTest extends \PHPUnit_Framework_TestCase
 
         $this->assertFalse($toggle->isEnabled($feature));
     }
+
+    public function testSetOption()
+    {
+        $toggle = new FeatureToggleGeneric(array('enabled'=>false));
+        $toggle->setOption('enabled', true);
+    }
+
+    public function testSerialize()
+    {
+        $toggle  = new FeatureToggleGeneric();
+        $data    = serialize($toggle);
+        $toggle2 = unserialize($data);
+
+        $this->assertEquals($toggle, $toggle2);
+    }
 }

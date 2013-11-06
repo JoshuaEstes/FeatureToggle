@@ -23,6 +23,15 @@ class FeatureContainerTest extends \PHPUnit_Framework_TestCase
         $container->removeFeature('one');
 
         $this->assertSame($container->count(), 3);
+
+        $container->clearFeatures();
+        $this->assertSame($container->count(), 0);
+
+        $container->addFeature($this->getMockFeature('iterate'));
+
+        foreach ($container as $feature) {
+            $this->assertSame($feature->getKey(), 'iterate');
+        }
     }
 
     private function getMockFeature($key)

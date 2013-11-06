@@ -3,6 +3,7 @@
 namespace JoshuaEstes\Component\FeatureToggle\Toggle;
 
 use JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggle;
+use JoshuaEstes\Component\FeatureToggle\FeatureInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
@@ -34,7 +35,7 @@ class FeatureToggleGeneric extends FeatureToggle
     /**
      * {@inheritDoc}
      */
-    public function isEnabled()
+    public function isEnabled(FeatureInterface $feature)
     {
         return $this->options['enabled'];
     }

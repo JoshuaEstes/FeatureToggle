@@ -4,6 +4,8 @@ namespace JoshuaEstes\Component\FeatureToggle;
 
 use JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggleInterface;
 use JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggleGeneric;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * Object that represents a feature in the system.
@@ -29,15 +31,25 @@ class Feature implements FeatureInterface
     protected $toggle;
 
     /**
-     * Create a new feature
-     *
-     * @param string                 $key
-     * @param FeatureToggleInterface $toggle
+     * @var array
      */
-    public function __construct($key, FeatureToggleInterface $toggle = null)
+    protected $options;
+
+    /**
+     * @param array $options
+     */
+    public function __construct(array $options = array())
     {
-        $this->key    = $key;
-        $this->toggle = $toggle ? $toggle : new FeatureToggleGeneric(array('enabled'=>false));
+        $resolver = new OptionsResolver();
+        $this->setDefaultOptions($resolver);
+        $this->options = $resolver->resolve($options);
+    }
+
+    /**
+     * @param OptionsResolverInterface $resolver
+     */
+    protected function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
     }
 
     /**
@@ -99,6 +111,6 @@ class Feature implements FeatureInterface
      */
     public function isEnabled()
     {
-        return $this->toggle->isEnabled();
+        return $this->toggle->isEnabled($this);
     }
 }

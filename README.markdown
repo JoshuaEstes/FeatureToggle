@@ -23,9 +23,10 @@ To install, just add to your `composer.json` file.
 
 # Usage
 
-    use JoshuaEstes\Component\FeatureToggle\Feature;
+    use JoshuaEstes\Component\FeatureToggle\FeatureBuilder;
 
-    $feature = new Feature('enable_a_cool_new_feature');
+    $feature = FeatureBuilder::create('enable_a_cool_new_feature')
+        ->getFeature();
 
     if ($feature->isEnabled()) {
         // code for when the feature is enabled
@@ -38,18 +39,29 @@ feature. You are able to do this two different ways.
 
     use JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggleGeneric;
 
-    $feature = new Feature('enable_a_cool_new_feature', new FeatureToggleGeneric(array('enabled'=>true)));
+    $feature = FeatureBuilder::create('enable_a_cool_new_feature')
+        ->setToggle(
+            new FeatureToggleGeneric(
+                array(
+                    'enabled' => true
+                )
+            )
+        )
+        ->getFeature();
 
 This will now enabled the feature, when you call `isEnabled()` it will return `true`. The
 other way to enable a feature is like so:
 
-    $feature->setToggle(new FeatureToggleGeneric(array('enabled'=>true)));
+    $feature = FeatureBuilder::create('enable_a_cool_new_feature')
+        ->getFeature();
 
-# Toggles
-
-Various toggles can be created to allow enable or disable based on various
-other conditions such as IP address, username, or anything else that you want
-to make. It must implement `JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggleInterface`.
+    $feature->setToggle(
+        new FeatureToggleGeneric(
+            array(
+                'enabled' => true
+            )
+        )
+    );
 
 # Feature Container
 
@@ -60,7 +72,8 @@ can easily loop through them.
     use JoshuaEstes\Component\FeatureToggle\Feature;
 
     $container = new FeatureContainer();
-    $feature   = new Feature('enable_a_cool_new_feature');
+    $feature = FeatureBuilder::create('enable_a_cool_new_feature')
+        ->getFeature();
 
     $container->addFeature($feature);
 

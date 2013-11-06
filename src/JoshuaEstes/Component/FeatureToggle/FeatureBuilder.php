@@ -4,6 +4,7 @@ namespace JoshuaEstes\Component\FeatureToggle;
 
 use JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggleInterface;
 use JoshuaEstes\Component\FeatureToggle\FeatureInterface;
+use JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggleGeneric;
 
 /**
  */
@@ -20,18 +21,30 @@ class FeatureBuilder
      */
     private $description;
 
-
     /**
      * @var FeatureToggleInterface
      */
     private $toggle;
 
     /**
+     * @var array
+     */
+    private $options = array();
+
+    /**
+     * @param string $key
+     */
+    public function __construct($key = null)
+    {
+        $this->key = $key;
+    }
+
+    /**
      * @return FeatureBuilder
      */
-    public static function create()
+    public static function create($key = null)
     {
-        return new self();
+        return new self($key);
     }
 
     /**
@@ -80,10 +93,14 @@ class FeatureBuilder
         }
 
         if (null === $this->toggle) {
-            throw new \Exception('Must set the feature toggle.');
+            $this->toggle = new FeatureToggleGeneric(
+                array(
+                    'enabled' => false,
+                )
+            );
         }
 
-        $feature = new Feature($this->key);
+        $feature = new Feature($this->options);
         $feature->setKey($this->key);
         $feature->setToggle($this->toggle);
         $feature->setDescription($this->description);

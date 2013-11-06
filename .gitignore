@@ -1,4 +1,5 @@
 /build/coverage/
 /build/logs/
+/docs/_build/
 /vendor/
 composer.lock

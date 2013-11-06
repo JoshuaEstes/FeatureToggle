@@ -20,11 +20,6 @@ abstract class FeatureToggle implements FeatureToggleInterface
     protected $options;
 
     /**
-     * @var OptionsResolver
-     */
-    protected $resolver;
-
-    /**
      * @param array $options
      */
     public function __construct(array $options = array())
@@ -37,17 +32,28 @@ abstract class FeatureToggle implements FeatureToggleInterface
      */
     abstract protected function setDefaultOptions(OptionsResolverInterface $resolver);
 
+    /**
+     * Set or modify an option after the object has been initialized
+     *
+     * @param string $option
+     * @param string $value
+     */
     public function setOption($option, $value)
     {
         $this->options[$option] = $value;
         $this->resolve($this->options);
     }
 
+    /**
+     * Resolves the options that have been set to see if there are any issues.
+     *
+     * @param array $options
+     */
     private function resolve(array $options = array())
     {
-        $this->resolver = new OptionsResolver();
-        $this->setDefaultOptions($this->resolver);
-        $this->options = $this->resolver->resolve($options);
+        $resolver = new OptionsResolver();
+        $this->setDefaultOptions($resolver);
+        $this->options = $resolver->resolve($options);
     }
 
     /**

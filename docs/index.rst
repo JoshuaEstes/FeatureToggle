@@ -1,22 +1,25 @@
-.. Feature Toggles documentation master file, created by
-   sphinx-quickstart on Tue Nov  5 21:13:50 2013.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to Feature Toggles's documentation!
-===========================================
+joshuaestes/feature-toggle
+==========================
 
 Contents:
 
 .. toctree::
    :maxdepth: 2
 
+   installation
+   configuration
+   usage
+   features
+   toggles
+   repositories
 
 
-Indices and tables
-==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. This is a comment
+    Indices and tables
+    ==================
+
+    * :ref:`genindex`
+    * :ref:`modindex`
+    * :ref:`search`
 

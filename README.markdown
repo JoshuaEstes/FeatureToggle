@@ -113,6 +113,58 @@ feature is enable or not. Some ideas for custom toggles include:
 * Collection, a collection of toggles where it checks for any or all to be enable.
 * Gradual, where you can release a feature to x% of a user base.
 
+## Creating a custom toggle based on username
+
+You can create a custom feature toggle with ease.
+
+    use JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggle;
+    use JoshuaEstes\Component\FeatureToggle\FeatureInterface;
+
+    class FeatureToggleUsername extends FeatureToggle
+    {
+        protected $user;
+
+        public function setUser($user)
+        {
+            $this->user = $user;
+        }
+
+        protected function setDefaultOptions(OptionsResolverInterface $resolver)
+        {
+            $resolver->setRequired(
+                array(
+                    'username'
+                )
+            );
+        }
+
+        public function isEnabled(FeatureInterface $feature)
+        {
+            return $this->options['username'] == $this->user->getUsername();
+        }
+    }
+
+Now that we have the toggle, we just need to create the toggle and assign it to
+a feature object.
+
+    use JoshuaEstes\Component\FeatureToggle\FeatureBuilder;
+
+    $toggle = new FeatureToggleUsername(
+        array(
+            'username' => 'joshua',
+        )
+    );
+    $toggle->setUser($user);
+
+    $feature = FeatureBuilder::create('enable_for_joshua')
+        ->setToggle($toggle)
+        ->getFeature();
+
+That's all there is to it! Note that the `$user` variable needs to be
+defined and must have a method `getUsername`. This feature will return true
+only for the user with the username `joshua` and will return false for
+all other users.
+
 # Creating Custom Repository
 
 All toggles must implement the [RepositoryInterface](https://github.com/JoshuaEstes/FeatureToggle/blob/master/src/JoshuaEstes/Component/FeatureToggle/Repository/RepositoryInterface.php).

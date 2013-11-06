@@ -50,6 +50,28 @@ class Feature implements FeatureInterface
      */
     protected function setDefaultOptions(OptionsResolverInterface $resolver)
     {
+        // This is used when extending this class, you can set various
+        // options here
+    }
+
+    /**
+     * @param string $key
+     *
+     * @return bool
+     */
+    public function hasOption($key)
+    {
+        return isset($this->options[$key]);
+    }
+
+    /**
+     * @param string $key
+     *
+     * @return string
+     */
+    public function getOption($key)
+    {
+        return $this->hasOption($key) ? $this->options[$key] : null;
     }
 
     /**

@@ -83,14 +83,14 @@ You can read the source code for more methods that you can call, such as
 
 # Creating Custom Features
 
-All features must implement the `[FeatureInterface](https://github.com/JoshuaEstes/FeatureToggle/blob/master/src/JoshuaEstes/Component/FeatureToggle/FeatureInterface.php)`.
+All features must implement the [FeatureInterface](https://github.com/JoshuaEstes/FeatureToggle/blob/master/src/JoshuaEstes/Component/FeatureToggle/FeatureInterface.php).
 
 In most situations you will only need to use the default `Feature`, however in
 some situations you might want to create your own.
 
 # Creating Custom Toggles
 
-All toggles must implement the `[FeatureToggleInterface](https://github.com/JoshuaEstes/FeatureToggle/blob/master/src/JoshuaEstes/Component/FeatureToggle/Toggle/FeatureToggleInterface.php)`.
+All toggles must implement the [FeatureToggleInterface](https://github.com/JoshuaEstes/FeatureToggle/blob/master/src/JoshuaEstes/Component/FeatureToggle/Toggle/FeatureToggleInterface.php).
 
 By creating a custom toggle, you can change the logic for figuring out if a
 feature is enable or not. Some ideas for custom toggles include:
@@ -102,7 +102,7 @@ feature is enable or not. Some ideas for custom toggles include:
 
 # Creating Custom Repository
 
-All toggles must implement the `[RepositoryInterface](https://github.com/JoshuaEstes/FeatureToggle/blob/master/src/JoshuaEstes/Component/FeatureToggle/Repository/RepositoryInterface.php)`.
+All toggles must implement the [RepositoryInterface](https://github.com/JoshuaEstes/FeatureToggle/blob/master/src/JoshuaEstes/Component/FeatureToggle/Repository/RepositoryInterface.php).
 
 Creating custom repositories allow you to store the states of the features
 in anything from a database to a flat file store. Some ideas are:

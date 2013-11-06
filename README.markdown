@@ -2,6 +2,7 @@ joshuaestes/feature-toggle
 ==========================
 
 [![Build Status](https://travis-ci.org/JoshuaEstes/FeatureToggle.png?branch=master)](https://travis-ci.org/JoshuaEstes/FeatureToggle)
+[RTFD](http://feature-toggle.rtfd.org)
 
 This library allows you to easily add and modify various features to your code
 while in development. Please read the information below on instructions on how

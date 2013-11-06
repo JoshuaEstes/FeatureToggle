@@ -2,7 +2,7 @@
     "name": "joshuaestes/feature-toggle",
     "homepage": "https://github.com/JoshuaEstes/FeatureToggle",
     "description": "Provides feature toggle functionality",
-    "keywords": [ "feature", "flag", "toggle" ],
+    "keywords": [ "feature", "flag", "toggle", "bit", "switch", "flipper" ],
     "license": "MIT",
     "minimum-stability": "dev",
     "authors": [

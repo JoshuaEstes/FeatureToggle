@@ -5,6 +5,8 @@ Using this library is fairly simple.
 
 .. code-block:: php
 
+    <?php
+
     use JoshuaEstes\Component\FeatureToggle\FeatureBuilder;
 
     $feature = FeatureBuilder::create('enable_a_cool_new_feature')
@@ -20,6 +22,8 @@ By default the feature is disabled. You will need to enabled the
 feature. You are able to do this two different ways.
 
 .. code-block:: php
+
+    <?php
 
     use JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggleGeneric;
 
@@ -37,6 +41,8 @@ This will now enabled the feature, when you call `isEnabled()` it will return `t
 other way to enable a feature is like so:
 
 .. code-block:: php
+
+    <?php
 
     $feature = FeatureBuilder::create('enable_a_cool_new_feature')
         ->getFeature();

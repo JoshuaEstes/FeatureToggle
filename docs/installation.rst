@@ -3,7 +3,7 @@ Installation
 
 Installation should be done with `composer <http://getcomposer.org/>`_ by adding this library to your ``composer.json`` file
 
-.. code-block:: text
+.. code-block:: json
 
     "require": {
         "joshuaestes/feature-toggle": "~0.1"

@@ -3,7 +3,8 @@ Usage
 
 Using this library is fairly simple.
 
-::
+.. code::
+
     use JoshuaEstes\Component\FeatureToggle\FeatureBuilder;
 
     $feature = FeatureBuilder::create('enable_a_cool_new_feature')
@@ -18,7 +19,8 @@ Using this library is fairly simple.
 By default the feature is disabled. You will need to enabled the
 feature. You are able to do this two different ways.
 
-::
+.. code::
+
     use JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggleGeneric;
 
     $feature = FeatureBuilder::create('enable_a_cool_new_feature')
@@ -34,7 +36,8 @@ feature. You are able to do this two different ways.
 This will now enabled the feature, when you call `isEnabled()` it will return `true`. The
 other way to enable a feature is like so:
 
-::
+.. code::
+
     $feature = FeatureBuilder::create('enable_a_cool_new_feature')
         ->getFeature();
 

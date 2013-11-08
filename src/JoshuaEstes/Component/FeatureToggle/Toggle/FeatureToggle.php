@@ -45,6 +45,16 @@ abstract class FeatureToggle implements FeatureToggleInterface
     }
 
     /**
+     * Returns all the options for the toggle
+     *
+     * @return array
+     */
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
+    /**
      * Resolves the options that have been set to see if there are any issues.
      *
      * @param array $options

@@ -181,3 +181,9 @@ in anything from a database to a flat file store. Some ideas are:
 
     php vendor/bin/phing -f build/build.xml phpunit
 
+# Development
+
+This project uses the branching model that you can find at 
+[http://nvie.com/posts/a-successful-git-branching-model](http://nvie.com/posts/a-successful-git-branching-model/).
+
+This project also using the [semantic versioning](http://semver.org/).

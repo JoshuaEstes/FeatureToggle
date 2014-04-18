@@ -39,6 +39,16 @@ class FeatureContainer implements \IteratorAggregate, \Countable
     }
 
     /**
+     * Returns the collection of every feature this container has
+     *
+     * @return ArrayCollection
+     */
+    public function getAllFeatures()
+    {
+        return $this->features;
+    }
+
+    /**
      * Add a feature to the container
      * 
      * @param FeatureInterface

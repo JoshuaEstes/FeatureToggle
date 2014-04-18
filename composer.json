@@ -31,5 +31,16 @@
         "branch-alias": {
             "dev-master": "0.1.x-dev"
         }
+    },
+    "archive": {
+        "exclude": [
+            "/build",
+            "/docs",
+            "/examples",
+            "/tests",
+            "/vendor",
+            "/composer.lock",
+            "/composer.phar"
+        ]
     }
 }

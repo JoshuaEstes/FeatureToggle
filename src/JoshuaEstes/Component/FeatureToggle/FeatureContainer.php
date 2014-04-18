@@ -3,6 +3,7 @@
 namespace JoshuaEstes\Component\FeatureToggle;
 
 use JoshuaEstes\Component\FeatureToggle\FeatureInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * This container contains all the features that you have.
@@ -15,7 +16,7 @@ class FeatureContainer implements \IteratorAggregate, \Countable
     /**
      * @var array
      */
-    protected $features = array();
+    protected $features;
 
     /**
      * You can pass an array of Feature objects into the construct
@@ -25,8 +26,15 @@ class FeatureContainer implements \IteratorAggregate, \Countable
      */
     public function __construct(array $features = array())
     {
+        $this->features = new ArrayCollection();
         foreach ($features as $feature) {
-            $this->addFeature($feature);
+            if ($feature instanceof FeatureInterface) {
+                $this->addFeature($feature);
+            } else {
+                throw new \Exception(
+                    'The array you passed in must contain FeatureInterface objects'
+                );
+            }
         }
     }
 
@@ -39,7 +47,7 @@ class FeatureContainer implements \IteratorAggregate, \Countable
      */
     public function addFeature(FeatureInterface $feature)
     {
-        $this->features[$feature->getKey()] = $feature;
+        $this->features->set($feature->getKey(), $feature);
 
         return $this;
     }
@@ -54,11 +62,7 @@ class FeatureContainer implements \IteratorAggregate, \Countable
      */
     public function getFeature($key)
     {
-        if (isset($this->features[$key])) {
-            return $this->features[$key];
-        }
-
-        return null;
+        return $this->features->get($key);
     }
 
     /**
@@ -70,7 +74,7 @@ class FeatureContainer implements \IteratorAggregate, \Countable
      */
     public function hasFeature($key)
     {
-        return isset($this->features[$key]);
+        return $this->features->containsKey($key);
     }
 
     /**
@@ -82,7 +86,7 @@ class FeatureContainer implements \IteratorAggregate, \Countable
      */
     public function removeFeature($key)
     {
-        unset($this->features[$key]);
+        $this->features->remove($key);
 
         return $this;
     }
@@ -94,7 +98,7 @@ class FeatureContainer implements \IteratorAggregate, \Countable
      */
     public function clearFeatures()
     {
-        $this->features = array();
+        $this->features->clear();
 
         return $this;
     }
@@ -104,7 +108,7 @@ class FeatureContainer implements \IteratorAggregate, \Countable
      */
     public function getIterator()
     {
-        return new \ArrayIterator($this->features);
+        return $this->features->getIterator();
     }
 
     /**
@@ -112,6 +116,6 @@ class FeatureContainer implements \IteratorAggregate, \Countable
      */
     public function count()
     {
-        return count($this->features);
+        return $this->features->count();
     }
 }

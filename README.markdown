@@ -41,7 +41,7 @@ feature. You are able to do this two different ways.
     use JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggleGeneric;
 
     $feature = FeatureBuilder::create('enable_a_cool_new_feature')
-        ->setToggle(
+        ->setFeatureToggle(
             new FeatureToggleGeneric(
                 array(
                     'enabled' => true
@@ -56,7 +56,7 @@ other way to enable a feature is like so:
     $feature = FeatureBuilder::create('enable_a_cool_new_feature')
         ->getFeature();
 
-    $feature->setToggle(
+    $feature->setFeatureToggle(
         new FeatureToggleGeneric(
             array(
                 'enabled' => true
@@ -158,7 +158,7 @@ a feature object.
     $toggle->setUser($user);
 
     $feature = FeatureBuilder::create('enable_for_joshua')
-        ->setToggle($toggle)
+        ->setFeatureToggle($toggle)
         ->getFeature();
 
 That's all there is to it! Note that the `$user` variable needs to be

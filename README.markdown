@@ -178,7 +178,7 @@ in anything from a database to a flat file store. Some ideas are:
 
 # Testing
 
-    php vendor/bin/phing -f build/build.xml phpunit
+    php bin/phing phpunit
 
 # Development
 

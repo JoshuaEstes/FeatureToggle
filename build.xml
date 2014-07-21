@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<project name="feature toggle" default="phpunit" basedir=".">
+<project name="feature toggle" default="phpunit">
+    <property file="${project.basedir}/build/build.properties" />
     <target name="phpunit">
-        <exec executable="${project.basedir}/vendor/bin/phpunit" passthru="true">
+        <exec executable="${project.basedir}/bin/phpunit" passthru="true">
             <arg value="-c" />
             <arg value="${project.basedir}/build/" />
         </exec>

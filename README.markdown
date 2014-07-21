@@ -9,9 +9,16 @@ to use this library as well as how to customize and add to it for your own needs
 
 # Concepts
 
-* **Features** are all unique and allows you to enable or disable each feature.
-* **Toggles** are the logic behind whether a feature is enabled or not.
-* **Repositories** allow you to persist features.
+## Feature
+
+A Feature is either enabled or disabled. It is enabled/disabled by the use of a
+toggle.
+
+## Toggle
+
+Toggles are reusable code snippets that enable/disable a feature. A toggle can
+be created to enable a feature by an IP address or something as simple as a
+configuration value.
 
 # Installation
 
@@ -164,17 +171,6 @@ That's all there is to it! Note that the `$user` variable needs to be
 defined and must have a method `getUsername`. This feature will return true
 only for the user with the username `joshua` and will return false for
 all other users.
-
-# Creating Custom Repository
-
-All toggles must implement the [RepositoryInterface](https://github.com/JoshuaEstes/FeatureToggle/blob/master/src/JoshuaEstes/Component/FeatureToggle/Repository/RepositoryInterface.php).
-
-Creating custom repositories allow you to store the states of the features
-in anything from a database to a flat file store. Some ideas are:
-
-* MySQL
-* MongoDB
-* SQLite
 
 # Testing
 

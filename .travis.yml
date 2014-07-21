@@ -6,7 +6,7 @@ branches:
     only:
         - master
 before_install:
-    - compser install
+    - composer install
 script:
     - php bin/phing phpunit
 cache:

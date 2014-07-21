@@ -1,8 +1,7 @@
 joshuaestes/feature-toggle
 ==========================
 
-[![Build Status](https://travis-ci.org/JoshuaEstes/FeatureToggle.png?branch=master)](https://travis-ci.org/JoshuaEstes/FeatureToggle)
-[RTFD](http://feature-toggle.rtfd.org)
+[![Build Status](https://travis-ci.org/JoshuaEstes/FeatureToggle.png?branch=master)](https://travis-ci.org/JoshuaEstes/FeatureToggle) [![Latest Stable Version](https://poser.pugx.org/joshuaestes/feature-toggle/v/stable.svg)](https://packagist.org/packages/joshuaestes/feature-toggle) [![Total Downloads](https://poser.pugx.org/joshuaestes/feature-toggle/downloads.svg)](https://packagist.org/packages/joshuaestes/feature-toggle) [![Latest Unstable Version](https://poser.pugx.org/joshuaestes/feature-toggle/v/unstable.svg)](https://packagist.org/packages/joshuaestes/feature-toggle) [![License](https://poser.pugx.org/joshuaestes/feature-toggle/license.svg)](https://packagist.org/packages/joshuaestes/feature-toggle) [RTFD](http://feature-toggle.rtfd.org)
 
 This library allows you to easily add and modify various features to your code
 while in development. Please read the information below on instructions on how

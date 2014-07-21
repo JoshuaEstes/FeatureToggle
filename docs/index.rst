@@ -11,4 +11,3 @@ Contents:
    usage
    features
    toggles
-   repositories

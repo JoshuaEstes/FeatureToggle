@@ -14,7 +14,7 @@ class FeatureContainer implements \IteratorAggregate, \Countable
 {
 
     /**
-     * @var array
+     * @var ArrayCollection
      */
     protected $features;
 

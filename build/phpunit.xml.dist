@@ -13,38 +13,35 @@
     syntaxCheck                 = "false">
 
     <testsuites>
-        <testsuite name="Feature Toggle">
+        <testsuite name="Feature Toggle Full Test Suite">
             <directory>../tests</directory>
         </testsuite>
     </testsuites>
 
-    <groups/>
-
     <filter>
-        <blacklist>
-            <directory>../vendor/**</directory>
-        </blacklist>
-        <whitelist>
-            <directory>../src</directory>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory>../src/JoshuaEstes/Component/FeatureToggle</directory>
+            <exclude>
+                <file>../src/JoshuaEstes/Component/FeatureToggle/FeatureInterface.php</file>
+                <file>../src/JoshuaEstes/Component/FeatureToggle/Toggle/FeatureToggleInterface.php</file>
+            </exclude>
         </whitelist>
     </filter>
 
     <logging>
         <log
-            type="coverage-html"
-            target="coverage"
-            title="Code Coverage"
-            charset="UTF-8"
-            yui="true"
-            highlight="true"
-            lowUpperBound="35"
-            highLowerBound="70"/>
+            type      = "coverage-html"
+            target    = "coverage"
+            title     = "joshuaestes/feature-toggle Code Coverage"
+            charset   = "UTF-8"
+            yui       = "true"
+            highlight = "true"/>
         <log
-            type="coverage-clover"
-            target="logs/clover.xml"/>
+            type   = "coverage-clover"
+            target = "logs/clover.xml"/>
         <log
-            type="junit"
-            target="logs/junit.xml"
-            logIncompleteSkipped="false"/>
+            type                 = "junit"
+            target               = "logs/junit.xml"
+            logIncompleteSkipped = "false"/>
     </logging>
 </phpunit>

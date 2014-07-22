@@ -51,7 +51,7 @@ class Feature implements FeatureInterface
     protected function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         // This is used when extending this class, you can set various
-        // options here
+        // options here if need be.
     }
 
     /**

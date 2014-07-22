@@ -22,4 +22,29 @@ class FeatureTest extends \PHPUnit_Framework_TestCase
             ->setToggle($toggle);
         $this->assertSame($feature->getKey(), 'test_feature');
     }
+
+    public function testWithConstructorArgument()
+    {
+        $this->setExpectedException('Symfony\Component\OptionsResolver\Exception\InvalidOptionsException');
+
+        $feature = new Feature(
+            array(
+                'option' => 'value',
+            )
+        );
+    }
+
+    public function testHasOption()
+    {
+        $feature = new Feature();
+
+        $this->assertFalse($feature->hasOption('not a real option'));
+    }
+
+    public function testGetOption()
+    {
+        $feature = new Feature();
+
+        $this->assertNull($feature->getOption('null values are fun'));
+    }
 }

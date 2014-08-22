@@ -47,5 +47,5 @@ Creating Custom Features
 
 All features must implement the `FeatureInterface <https://github.com/JoshuaEstes/FeatureToggle/blob/master/src/JoshuaEstes/Component/FeatureToggle/FeatureInterface.php>`_.
 
-In most situations you will only need to use the default `Feature <https://github.com/JoshuaEstes/FeatureToggle/blob/master/src/JoshuaEstes/Component/FeatureToggle/Feature.php`_,
+In most situations you will only need to use the default `Feature <https://github.com/JoshuaEstes/FeatureToggle/blob/master/src/JoshuaEstes/Component/FeatureToggle/Feature.php>`_,
 however in some situations you might want to create your own.

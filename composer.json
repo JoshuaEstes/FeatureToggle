@@ -20,7 +20,8 @@
     },
     "require": {
         "symfony/options-resolver": "~2.3",
-        "symfony/yaml": "~2.3"
+        "symfony/yaml": "~2.3",
+        "doctrine/common": "~2.5"
     },
     "require-dev": {
         "phpunit/phpunit": "*",
@@ -28,7 +29,22 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.1.x-dev"
+            "dev-master": "0.1.x-dev",
+            "dev-develop": "0.2.x-dev"
         }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "archive": {
+        "exclude": [
+            "/build",
+            "/docs",
+            "/examples",
+            "/tests",
+            "/vendor",
+            "/composer.lock",
+            "/composer.phar"
+        ]
     }
 }

@@ -6,11 +6,9 @@ branches:
     only:
         - master
 before_install:
-    - curl -sS https://getcomposer.org/installer | php
-install:
-    - php composer.phar update
+    - composer install
 script:
-    - php vendor/bin/phing -f build/build.xml
+    - php bin/phing phpunit
 cache:
     directories:
         - vendor/

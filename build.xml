@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<project name="feature toggle" default="phpunit">
+    <property file="${project.basedir}/build/build.properties" />
 
-<project name="feature toggle" default="phpunit" basedir=".">
     <target name="phpunit">
-        <exec executable="${project.basedir}/vendor/bin/phpunit" passthru="true">
+        <delete dir="build/coverage" />
+        <exec executable="${project.basedir}/bin/phpunit" passthru="true">
             <arg value="-c" />
             <arg value="${project.basedir}/build/" />
         </exec>

@@ -1,3 +1,6 @@
+License
+=======
+
 Copyright (c) 2013-2014 Joshua Estes <Joshua@Estes.in>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -12,7 +12,7 @@ A toggle is also passed an array that is used to configure the toggle.
 Creating Custom Toggles
 -----------------------
 
-All toggles must implement the `FeatureToggleInterface <https://github.com/JoshuaEstes/FeatureToggle/blob/master/src/JoshuaEstes/Component/FeatureToggle/Toggle/FeatureToggleInterface.php`_.
+All toggles must implement the `FeatureToggleInterface <https://github.com/JoshuaEstes/FeatureToggle/blob/master/src/JoshuaEstes/Component/FeatureToggle/Toggle/FeatureToggleInterface.php>`_.
 
 By creating a custom toggle, you can change the logic for figuring out if a
 feature is enable or not. Some ideas for custom toggles include:

@@ -1,3 +1,4 @@
+=======
 Toggles
 =======
 
@@ -7,9 +8,11 @@ configuration value.
 
 A toggle is also passed an array that is used to configure the toggle.
 
-# Creating Custom Toggles
+-----------------------
+Creating Custom Toggles
+-----------------------
 
-All toggles must implement the [FeatureToggleInterface](https://github.com/JoshuaEstes/FeatureToggle/blob/master/src/JoshuaEstes/Component/FeatureToggle/Toggle/FeatureToggleInterface.php).
+All toggles must implement the `FeatureToggleInterface <https://github.com/JoshuaEstes/FeatureToggle/blob/master/src/JoshuaEstes/Component/FeatureToggle/Toggle/FeatureToggleInterface.php`_.
 
 By creating a custom toggle, you can change the logic for figuring out if a
 feature is enable or not. Some ideas for custom toggles include:
@@ -19,76 +22,79 @@ feature is enable or not. Some ideas for custom toggles include:
 * Collection, a collection of toggles where it checks for any or all to be enable.
 * Gradual, where you can release a feature to x% of a user base.
 
-## Creating a custom toggle based on username
+Creating a custom toggle based on username
+==========================================
 
 You can create a custom feature toggle with ease.
 
-```php
-use Symfony\Component\Security\Core\User\UserInterface;
-use JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggle;
-use JoshuaEstes\Component\FeatureToggle\FeatureInterface;
+.. code-block:: php
 
-class FeatureToggleUsername extends FeatureToggle
-{
+    <?php
+    use Symfony\Component\Security\Core\User\UserInterface;
+    use JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggle;
+    use JoshuaEstes\Component\FeatureToggle\FeatureInterface;
 
-    /**
-     * @var UserInterface
-     */
-    protected $user;
-
-    /**
-     * Dependency injection
-     *
-     * @param UserInterface $user
-     */
-    public function setUser(UserInterface $user)
+    class FeatureToggleUsername extends FeatureToggle
     {
-        $this->user = $user;
-    }
 
-    /**
-     * Used to set the options that are allowed to be used with this toggle
-     *
-     * @param OptionsResolverInterface $resolver
-     */
-    protected function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $resolver->setRequired(
-            array(
-                'username'
-            )
-        );
-    }
+        /**
+         * @var UserInterface
+         */
+        protected $user;
 
-    /**
-     * Check some settings and return true if the feature should be enabled
-     *
-     * @param FeatureInterface $feature
-     */
-    public function isEnabled(FeatureInterface $feature)
-    {
-        return $this->options['username'] == $this->user->getUsername();
+        /**
+         * Dependency injection
+         *
+         * @param UserInterface $user
+         */
+        public function setUser(UserInterface $user)
+        {
+            $this->user = $user;
+        }
+
+        /**
+         * Used to set the options that are allowed to be used with this toggle
+         *
+         * @param OptionsResolverInterface $resolver
+         */
+        protected function setDefaultOptions(OptionsResolverInterface $resolver)
+        {
+            $resolver->setRequired(
+                array(
+                    'username'
+                )
+            );
+        }
+
+        /**
+         * Check some settings and return true if the feature should be enabled
+         *
+         * @param FeatureInterface $feature
+         */
+        public function isEnabled(FeatureInterface $feature)
+        {
+            return $this->options['username'] == $this->user->getUsername();
+        }
     }
-}
-```
 
 Now that we have the toggle, we just need to create the toggle and assign it to
 a feature object.
 
-```php
-use JoshuaEstes\Component\FeatureToggle\FeatureBuilder;
+.. code-block:: php
 
-$toggle = new FeatureToggleUsername(
-    array(
-        'username' => 'joshua',
-    )
-);
-$toggle->setUser($user);
+    <?php
+    use JoshuaEstes\Component\FeatureToggle\FeatureBuilder;
 
-$feature = FeatureBuilder::create('enable_for_joshua')
-    ->setFeatureToggle($toggle)
-    ->getFeature();
-```
+    $toggle = new FeatureToggleUsername(
+        array(
+            'username' => 'joshua',
+        )
+    );
+    $toggle->setUser($user);
+
+    $feature = FeatureBuilder::create('enable_for_joshua')
+        ->setFeatureToggle($toggle)
+        ->getFeature();
 
 That's all there is to it! Note that the `$user` variable needs to be
 defined and must have a method `getUsername`. This feature will return true

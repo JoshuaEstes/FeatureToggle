@@ -34,10 +34,28 @@ class FeatureContainerTest extends \PHPUnit_Framework_TestCase
         }
     }
 
+    public function testContainerException()
+    {
+        $this->setExpectedException('Exception');
+
+        $container = new FeatureContainer(
+            array(
+                'exception be thrown!',
+            )
+        );
+    }
+
+    public function testGetAllFeatures()
+    {
+        $container = new FeatureContainer();
+
+        $this->assertInstanceOf('Doctrine\Common\Collections\ArrayCollection', $container->getAllFeatures());
+    }
+
     private function getMockFeature($key)
     {
         $feature = $this
-            ->getMockBuilder('JoshuaEstes\Component\FeatureToggle\Feature')
+            ->getMockBuilder('JoshuaEstes\Component\FeatureToggle\FeatureInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

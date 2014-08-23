@@ -7,6 +7,7 @@ use JoshuaEstes\Component\FeatureToggle\FeatureInterface;
 use JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggleGeneric;
 
 /**
+ * Class that helps you build a feature object
  */
 class FeatureBuilder
 {

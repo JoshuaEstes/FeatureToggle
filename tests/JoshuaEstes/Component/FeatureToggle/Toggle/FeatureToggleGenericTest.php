@@ -35,4 +35,11 @@ class FeatureToggleGenericTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($toggle, $toggle2);
     }
+
+    public function testGetOptions()
+    {
+        $toggle = new FeatureToggleGeneric();
+
+        $this->assertInternalType('array', $toggle->getOptions());
+    }
 }

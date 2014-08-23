@@ -13,7 +13,7 @@
     ],
     "support": {
         "issues": "https://github.com/JoshuaEstes/FeatureToggle/issues",
-        "wiki": "https://github.com/JoshuaEstes/FeatureToggle/wiki"
+        "wiki": "http://feature-toggle.readthedocs.org/en/latest"
     },
     "autoload": {
         "psr-0": { "": "src/"  }

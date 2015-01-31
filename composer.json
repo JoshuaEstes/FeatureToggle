@@ -4,7 +4,7 @@
     "description": "Provides feature toggle functionality",
     "keywords": [ "feature", "flag", "toggle", "bit", "switch", "flipper" ],
     "license": "MIT",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "authors": [
         {
             "name": "Contributors",

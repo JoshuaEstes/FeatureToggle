@@ -6,12 +6,8 @@ out and have your Pull Request more likely to get merged in.
 
 ## Getting Started
 
-Please fork this repository and cut a branch of the develop branch of this
-repository. When submitting a pull request, please make sure that it will
-be merged into the develop branch. You can read more about this workflow at
-http://nvie.com/posts/a-successful-git-branching-model/
-
-Also please make sure that PSR-1 and PSR-2 standards are followed.
+Fork this project and clone your fork. Once cloned, please create a new branch
+and push it up to your repository. Once you are finished, submit a pull request.
 
 ## Documentation
 

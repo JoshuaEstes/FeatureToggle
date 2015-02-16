@@ -2,7 +2,7 @@
 <project name="feature toggle" default="build">
     <property file="${project.basedir}/build.properties" />
 
-    <target name="build" depends="lint,phpunit,codeclimate" />
+    <target name="build" depends="lint,phpunit" />
 
     <target name="phpunit">
         <delete dir="${project.basedir}/coverage" />

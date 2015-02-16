@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="feature toggle" default="phpunit">
+<project name="feature toggle" default="build">
     <property file="${project.basedir}/build.properties" />
 
+    <target name="build" depends="lint,phpunit,codeclimate" />
+
     <target name="phpunit">
-        <delete dir="build/coverage" />
+        <delete dir="${project.basedir}/coverage" />
         <exec executable="${project.basedir}/../bin/phpunit" passthru="true">
             <arg value="-c" />
             <arg value="${project.basedir}/" />
@@ -16,5 +18,12 @@
                 <include name="**/*.php" />
             </fileset>
         </phplint>
+    </target>
+
+    <target name="codeclimate">
+        <exec executable="${project.basedir}/../bin/test-reporter" passthru="true">
+            <arg value="--coverage-report" />
+            <arg value="${project.basedir}/logs/clover.xml" />
+        </exec>
     </target>
 </project>

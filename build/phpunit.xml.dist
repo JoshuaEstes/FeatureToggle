@@ -29,6 +29,7 @@
     </filter>
 
     <logging>
+        <log type="coverage-clover" target="logs/clover.xml"/>
         <log
             type      = "coverage-html"
             target    = "coverage"
@@ -36,9 +37,6 @@
             charset   = "UTF-8"
             yui       = "true"
             highlight = "true"/>
-        <log
-            type   = "coverage-clover"
-            target = "logs/clover.xml"/>
         <log
             type                 = "junit"
             target               = "logs/junit.xml"

@@ -25,7 +25,7 @@ class FeatureTest extends \PHPUnit_Framework_TestCase
 
     public function testWithConstructorArgument()
     {
-        $this->setExpectedException('Symfony\Component\OptionsResolver\Exception\InvalidOptionsException');
+        $this->setExpectedException('Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException');
 
         $feature = new Feature(
             array(

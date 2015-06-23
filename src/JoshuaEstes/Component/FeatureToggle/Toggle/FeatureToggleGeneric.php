@@ -25,11 +25,7 @@ class FeatureToggleGeneric extends FeatureToggle
             )
         );
 
-        $resolver->setAllowedTypes(
-            array(
-                'enabled' => 'bool',
-            )
-        );
+        $resolver->setAllowedTypes('enabled', 'bool');
     }
 
     /**

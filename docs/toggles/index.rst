@@ -55,9 +55,9 @@ You can create a custom feature toggle with ease.
         /**
          * Used to set the options that are allowed to be used with this toggle
          *
-         * @param OptionsResolverInterface $resolver
+         * @param OptionsResolver $resolver
          */
-        protected function setDefaultOptions(OptionsResolverInterface $resolver)
+        protected function configureOptions(OptionsResolver $resolver)
         {
             $resolver->setRequired(
                 array(

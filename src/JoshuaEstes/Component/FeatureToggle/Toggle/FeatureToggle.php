@@ -29,8 +29,20 @@ abstract class FeatureToggle implements FeatureToggleInterface
 
     /**
      * {@inheritDoc}
+     *
+     * @deprecated use configureOptions instead
      */
-    abstract protected function setDefaultOptions(OptionsResolverInterface $resolver);
+    protected function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    protected function configureOptions(OptionsResolver $resolver)
+    {
+        $this->setDefaultOptions($resolver);
+    }
 
     /**
      * Set or modify an option after the object has been initialized
@@ -62,7 +74,7 @@ abstract class FeatureToggle implements FeatureToggleInterface
     private function resolve(array $options = array())
     {
         $resolver = new OptionsResolver();
-        $this->setDefaultOptions($resolver);
+        $this->configureOptions($resolver);
         $this->options = $resolver->resolve($options);
     }
 

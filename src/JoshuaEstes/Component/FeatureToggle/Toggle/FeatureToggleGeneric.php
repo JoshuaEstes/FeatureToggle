@@ -2,9 +2,8 @@
 
 namespace JoshuaEstes\Component\FeatureToggle\Toggle;
 
-use JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggle;
 use JoshuaEstes\Component\FeatureToggle\FeatureInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Used to easly add a feature that can be enabled or disabled
@@ -13,17 +12,12 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
  */
 class FeatureToggleGeneric extends FeatureToggle
 {
-
     /**
      * {@inheritDoc}
      */
-    protected function setDefaultOptions(OptionsResolverInterface $resolver)
+    protected function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(
-            array(
-                'enabled' => false,
-            )
-        );
+        $resolver->setDefault('enabled', false);
 
         $resolver->setAllowedTypes('enabled', 'bool');
     }

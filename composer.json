@@ -20,7 +20,6 @@
     },
     "require": {
         "symfony/options-resolver": ">=2.3",
-        "symfony/yaml": ">=2.3",
         "doctrine/common": ">=2.4"
     },
     "require-dev": {

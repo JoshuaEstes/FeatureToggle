@@ -4,7 +4,6 @@ namespace JoshuaEstes\Component\FeatureToggle;
 
 use JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggleInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * Object that represents a feature in the system.
@@ -45,23 +44,10 @@ class Feature implements FeatureInterface
     }
 
     /**
-     * @param OptionsResolverInterface $resolver
-     *
-     * @deprecated use configureOptions instead
-     */
-    protected function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        // This is used when extending this class, you can set various
-        // options here if need be.
-    }
-
-    /**
      * @param OptionsResolver $resolver
      */
     protected function configureOptions(OptionsResolver $resolver)
     {
-        // @TODO Remove this call when removing the setDefaultOptions method
-        $this->setDefaultOptions($resolver);
     }
 
     /**

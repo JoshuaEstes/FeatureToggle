@@ -3,12 +3,11 @@
 namespace JoshuaEstes\Component\FeatureToggle\Toggle;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * All features should extend this class. This provides some defaults that
  * help with feature toggles
- * 
+ *
  * @author Joshua Estes <Joshua@Estes.in>
  */
 abstract class FeatureToggle implements FeatureToggleInterface
@@ -29,19 +28,9 @@ abstract class FeatureToggle implements FeatureToggleInterface
 
     /**
      * {@inheritDoc}
-     *
-     * @deprecated use configureOptions instead
-     */
-    protected function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
      */
     protected function configureOptions(OptionsResolver $resolver)
     {
-        $this->setDefaultOptions($resolver);
     }
 
     /**

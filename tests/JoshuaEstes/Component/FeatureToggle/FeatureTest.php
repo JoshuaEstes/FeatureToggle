@@ -15,7 +15,9 @@ class FeatureTest extends \PHPUnit_Framework_TestCase
 
     public function testWithToggle()
     {
-        $toggle = $this->getMock('JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggleInterface');
+        $toggle = $this->getMockBuilder('JoshuaEstes\Component\FeatureToggle\Toggle\FeatureToggleInterface')
+            ->getMock();
+
         $feature = new Feature();
         $feature
             ->setKey('test_feature')

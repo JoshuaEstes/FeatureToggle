@@ -19,13 +19,13 @@
         "psr-0": { "": "src/"  }
     },
     "require": {
-        "symfony/options-resolver": ">=2.3",
-        "doctrine/common": ">=2.4"
+        "symfony/options-resolver": "~2.4",
+        "doctrine/common": "~2.4"
     },
     "require-dev": {
-        "phpunit/phpunit": "*",
-        "phing/phing": "*",
-        "codeclimate/php-test-reporter": "*"
+        "phpunit/phpunit": "~5.4",
+        "phing/phing": "~2.15",
+        "codeclimate/php-test-reporter": "^0.3"
     },
     "extra": {
         "branch-alias": {
